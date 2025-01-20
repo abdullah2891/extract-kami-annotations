@@ -1,0 +1,93 @@
+
+AWS Certified
+Solutions Architect
+Slides v40.pdf4 Highlight, 13 Comment
+AWS
+Containers
+• Amazon Elastic Container Service (Amazon ECS) • Amazon’ s own container platform
+• Amazon Elastic Kubernetes Service (Amazon EKS) • Amazon’ s managed Kubernetes
+(open source) • AWS Far gate • Amazon’ s own Serverless container platform • Wor ks
+with ECS and with EKS • Amazon ECR: • Store container images
+Highlighted: EC2 Launch Type: you must provision & maintain the infrastructure (the
+EC2 instances | Comment Text: what's dif ference betwenn ECS launch type vs far gate?
+Each EC2 Instance must run the ECS Agent to register in the ECS Cluste
+Highlighted: EC2 Instance Profile (EC2 Launch Type only): • Used by the ECS agent •
+Makes API calls to ECS service • Send container logs to CloudW atch Logs • Pull Docker
+image from ECR • Reference sensitive data in Secrets Manager or SSM Parameter Stor |
+Comment Text: how does ec2 instance launch type pulls ecs
+Highlighted: Allows each task to have a specific role • Use dif ferent roles for the
+different ECS Services you run • Ta s k R o l e i s d e f i n e d i n t h e task definition |
+Comment Text: can you run dif ferent roles for each ecs far gate task?
+Highlighted: Mount EFS file systems onto ECS tasks • Wor ks for both EC2 and Far gate
+launch types • Ta s k s r u n n i n g i n a n y A Z w i l l s h a r e t h e same data in the EFS
+file system • Far gate + EFS = Serverless | Comment Text: How can data volume work
+with ecs
+Highlighted: Ta r g e t Tr a c k i n g – scale based on tar get value for a specific
+CloudW atch metric • Step Scaling – scale based on a specified CloudW atch Alarm •
+Scheduled Scaling – scale based on a specified date/time (predictable changes) |
+Comment Text: Type of ecs scaling schemes
+Highlighted: Auto Scaling Group Scaling • Scale your ASG based on CPU Utilization •
+Add EC2 instances over time • ECS Cluster Capacity Provider • Used to automatically
+provision and scale the infrastructure for your ECS Tasks • Capacity Provider paired
+with an Auto Scaling Group • Add EC2 Instances when you’re missing capacity (CPU,
+RAM...) | Comment Text: Types of autoscaling scheme for ecsPage 4
+Page 427
+Page 428
+Page 430
+Page 432
+Page 433
+Page 434
+
+
+
+
+
+
+
+
+
+
+Highlighted: Private and Public repository (Amazon ECR Public Gallery
+https://gallery .ecr.aws) • Fully integrated with ECS, backed by Amazon S3 • Access is
+controlled through IAM (permission errors => policy) • Supports image vulnerability
+scanning, versioning, image tags, image lifecycle, . | Comment Text: Features of ECR
+Highlighted: Kubernetes is an open-source system for automatic deployment, scaling
+and management of containerized (usually Docker) application • It’ s an alternative to
+ECS, similar goal but dif ferent API | Comment Text: what's kubernetes?
+Highlighted: Managed Node Groups • Creates and manages Nodes (EC2 instances) for
+you • Nodes are part of an ASG managed by EKS • Supports On-Demand or Spot
+Instances • Self-Managed Nodes • Nodes created by you and registered to the EKS
+cluster and managed by an ASG • Yo u c a n u s e p r e b u i l t A M I - Amazon EKS
+Optimized AMI • Supports On-Demand or Spot Instances • AWS Far gate • No
+maintenance required; no nodes managed | Comment Text: Types of nodes for amazon
+eks
+Highlighted: Need to specify StorageClass manifest on your EKS cluster • Leverages a
+Container Storage Interface (CSI) compliant driver | Comment Text: how to setup data
+volumes for Amazon EKS
+Highlighted: Amazon EBS • Amazon EFS (works with Far gate) • Amazon FSx for
+Lustre • Amazon FSx for NetApp ONT AP | Comment Text: data volumes supported by
+amazon eks
+Highlighted: Fully managed service that makes it easy to deploy web applications and
+APIs at scale • No infrastructure experience required • Start with your source code or
+container image • Automatically builds and deploy the web app • Automatic scaling,
+highly available, load balancer , encr yption • VPC access support • Connect to database,
+cache, and message queue services • Use cases: web apps, APIs, microservices, rapid
+production deployment | Comment Text: what's aws app runner?
+Highlighted: CLI tool for migrating and modernizing Java and .NET  web apps into
+Docker Containers • Lift-and-shift your apps running in on-premises bare metal, virtual
+machines, or in any Cloud to AWS • Accelerate modernization, no code changes, migrate
+legacy apps... • Generates CloudFormation templates (compute, network...) • Register
+generated Docker containers to ECR • Deploy to ECS, EKS, or App Runner • Supports
+pre-built CI/CD pipelines | Comment Text: what's app2containerPage 440
+Page 441
+Page 443
+Page 444
+Page 445
+Page 446
+
+
+
+
+
+
+
